@@ -13,10 +13,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('../../android.keystore')
-            keyAlias 'tananaev'
-            storePassword ''
-            keyPassword ''
+            storeFile file('/home/olivier/android.keystore')
+            keyAlias 'olivierfavre'
+            storePassword 'C5417Z'
+            keyPassword 'cC5417Zz'
         }
     }
 
@@ -44,13 +44,4 @@ dependencies {
     testCompile 'org.robolectric:robolectric:3.0'
 }
 
-task requestPasswords << {
-    android.signingConfigs.release.storePassword = new String(System.console().readPassword('\nStore password: '))
-    android.signingConfigs.release.keyPassword = new String(System.console().readPassword('Key password: '))
-}
 
-tasks.whenTaskAdded { theTask ->
-    if (theTask.name.equals('packageRegularRelease') || theTask.name.equals('packageHiddenRelease')) {
-        theTask.dependsOn 'requestPasswords'
-    }
-}
