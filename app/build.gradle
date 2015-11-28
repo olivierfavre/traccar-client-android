@@ -15,8 +15,8 @@ android {
         release {
             storeFile file('/home/olivier/android.keystore')
             keyAlias 'olivierfavre'
-            storePassword 'C5417Z'
-            keyPassword 'cC5417Zz'
+            storePassword ''
+            keyPassword ''
         }
     }
 
